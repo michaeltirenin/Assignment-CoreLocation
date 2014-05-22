@@ -7,6 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
+
+//can also import using this syntax
+//@import MapKit;
+//@import CoreLocation;
 
 @interface MTViewController : UIViewController
 
