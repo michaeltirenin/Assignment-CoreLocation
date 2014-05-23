@@ -9,11 +9,19 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "MTResultsTableViewController.h"
 
 //can also import using this syntax
 //@import MapKit;
 //@import CoreLocation;
 
-@interface MTViewController : UIViewController
+@interface MTViewController : UIViewController <CLLocationManagerDelegate, UISearchDisplayDelegate, UISearchBarDelegate, MKMapViewDelegate>
+
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) MKLocalSearchResponse *response;
+
+- (IBAction)changeMapType:(UIBarButtonItem *)sender;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *detailsButton;
 
 @end

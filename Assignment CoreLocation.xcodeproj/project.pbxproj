@@ -23,6 +23,10 @@
 		F232C080192D227400F0687A /* Assignment_CoreLocationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F232C07F192D227400F0687A /* Assignment_CoreLocationTests.m */; };
 		F232C08A192D238A00F0687A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F232C089192D238A00F0687A /* CoreLocation.framework */; };
 		F232C08C192D239200F0687A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F232C08B192D239200F0687A /* MapKit.framework */; };
+		F2EB4DEB192E713500919EB2 /* MTResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2EB4DEA192E713500919EB2 /* MTResultsTableViewController.m */; };
+		F2EB4DF0192E71B500919EB2 /* MTResultsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2EB4DEF192E71B500919EB2 /* MTResultsTableCell.m */; };
+		F2EB4DF3192E721A00919EB2 /* MTRouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2EB4DF2192E721A00919EB2 /* MTRouteViewController.m */; };
+		F2EB4DF5192EC19E00919EB2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2EB4DF4192EC19E00919EB2 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +61,13 @@
 		F232C07F192D227400F0687A /* Assignment_CoreLocationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Assignment_CoreLocationTests.m; sourceTree = "<group>"; };
 		F232C089192D238A00F0687A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F232C08B192D239200F0687A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		F2EB4DE9192E713500919EB2 /* MTResultsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTResultsTableViewController.h; sourceTree = "<group>"; };
+		F2EB4DEA192E713500919EB2 /* MTResultsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTResultsTableViewController.m; sourceTree = "<group>"; };
+		F2EB4DEE192E71B500919EB2 /* MTResultsTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTResultsTableCell.h; sourceTree = "<group>"; };
+		F2EB4DEF192E71B500919EB2 /* MTResultsTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTResultsTableCell.m; sourceTree = "<group>"; };
+		F2EB4DF1192E721A00919EB2 /* MTRouteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTRouteViewController.h; sourceTree = "<group>"; };
+		F2EB4DF2192E721A00919EB2 /* MTRouteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTRouteViewController.m; sourceTree = "<group>"; };
+		F2EB4DF4192EC19E00919EB2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2EB4DF5192EC19E00919EB2 /* AVFoundation.framework in Frameworks */,
 				F232C08C192D239200F0687A /* MapKit.framework in Frameworks */,
 				F232C08A192D238A00F0687A /* CoreLocation.framework in Frameworks */,
 				F232C057192D227400F0687A /* CoreGraphics.framework in Frameworks */,
@@ -107,6 +119,7 @@
 		F232C053192D227400F0687A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F2EB4DF4192EC19E00919EB2 /* AVFoundation.framework */,
 				F232C08B192D239200F0687A /* MapKit.framework */,
 				F232C089192D238A00F0687A /* CoreLocation.framework */,
 				F232C054192D227400F0687A /* Foundation.framework */,
@@ -122,9 +135,8 @@
 			children = (
 				F232C063192D227400F0687A /* MTAppDelegate.h */,
 				F232C064192D227400F0687A /* MTAppDelegate.m */,
-				F232C066192D227400F0687A /* Main.storyboard */,
-				F232C069192D227400F0687A /* MTViewController.h */,
-				F232C06A192D227400F0687A /* MTViewController.m */,
+				F2EB4DED192E716A00919EB2 /* View */,
+				F2EB4DEC192E715B00919EB2 /* Controller */,
 				F232C06C192D227400F0687A /* Images.xcassets */,
 				F232C05B192D227400F0687A /* Supporting Files */,
 			);
@@ -158,6 +170,29 @@
 				F232C07C192D227400F0687A /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F2EB4DEC192E715B00919EB2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F232C069192D227400F0687A /* MTViewController.h */,
+				F232C06A192D227400F0687A /* MTViewController.m */,
+				F2EB4DE9192E713500919EB2 /* MTResultsTableViewController.h */,
+				F2EB4DEA192E713500919EB2 /* MTResultsTableViewController.m */,
+				F2EB4DF1192E721A00919EB2 /* MTRouteViewController.h */,
+				F2EB4DF2192E721A00919EB2 /* MTRouteViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		F2EB4DED192E716A00919EB2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F2EB4DEE192E71B500919EB2 /* MTResultsTableCell.h */,
+				F2EB4DEF192E71B500919EB2 /* MTResultsTableCell.m */,
+				F232C066192D227400F0687A /* Main.storyboard */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,9 +293,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2EB4DF0192E71B500919EB2 /* MTResultsTableCell.m in Sources */,
+				F2EB4DF3192E721A00919EB2 /* MTRouteViewController.m in Sources */,
 				F232C061192D227400F0687A /* main.m in Sources */,
 				F232C06B192D227400F0687A /* MTViewController.m in Sources */,
 				F232C065192D227400F0687A /* MTAppDelegate.m in Sources */,
+				F2EB4DEB192E713500919EB2 /* MTResultsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,6 +503,7 @@
 				F232C085192D227400F0687A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F232C086192D227400F0687A /* Build configuration list for PBXNativeTarget "Assignment CoreLocationTests" */ = {
 			isa = XCConfigurationList;
@@ -473,6 +512,7 @@
 				F232C088192D227400F0687A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

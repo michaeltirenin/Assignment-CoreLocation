@@ -9,11 +9,8 @@
 
 #import "MTViewController.h"
 
-@interface MTViewController () <CLLocationManagerDelegate, UISearchDisplayDelegate, UISearchBarDelegate>
+@interface MTViewController ()
 
-@property (strong, nonatomic) CLLocationManager *locationManager;
-@property (weak, nonatomic) IBOutlet MKMapView *mapView;
-@property (strong, nonatomic) MKLocalSearchResponse *response;
 @end
 
 @implementation MTViewController
@@ -31,6 +28,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+//    _mapView.showsUserLocation = YES;
+//    _mapView.delegate = self;
 
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
@@ -40,10 +40,10 @@
     [self.locationManager startUpdatingLocation];
 }
 
-//- (void)didReceiveMemoryWarning
-//{
-//    [super didReceiveMemoryWarning];
-//}
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+{
+    _mapView.centerCoordinate = userLocation.coordinate;
+}
 
 #pragma mark - CLLocationManagerDelegate
 
@@ -120,6 +120,22 @@
 {
     [self.searchDisplayController setActive:NO animated:YES];
     [self.mapView addAnnotation:[self.response.mapItems[indexPath.row]placemark]];
+    _detailsButton.enabled = YES; // enables the "Search Details" button
+
 }
 
+// toggles between standard and satellite
+- (IBAction)changeMapType:(UIBarButtonItem *)sender
+{
+    if (_mapView.mapType == MKMapTypeStandard)
+        _mapView.mapType = MKMapTypeSatellite;
+    else
+        _mapView.mapType = MKMapTypeStandard;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    MTResultsTableViewController *destination = [segue destinationViewController];
+    destination.mapItems = self.response.mapItems;
+}
 @end
