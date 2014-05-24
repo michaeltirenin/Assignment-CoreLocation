@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *playPauseButton;
 @property (strong, nonatomic) AVSpeechSynthesizer *synthesizer;
 
+@property (strong, nonatomic) NSString *directionsToSpeak;
+
 //- (void)zoomToPolyLine:(MKMapView *)mapView polyLine:(MKPolyline *)polyLine;
 
 @end

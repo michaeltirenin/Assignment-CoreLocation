@@ -121,7 +121,6 @@
     [self.searchDisplayController setActive:NO animated:YES];
     [self.mapView addAnnotation:[self.response.mapItems[indexPath.row]placemark]];
     _detailsButton.enabled = YES; // enables the "Search Details" button
-
 }
 
 // toggles between standard and satellite

@@ -80,7 +80,7 @@
             </objects>
             <point key="canvasLocation" x="537" y="71"/>
         </scene>
-        <!--Results Table View Controller - Location Details-->
+        <!--Results Table View Controller - Search Location Details-->
         <scene sceneID="4UI-Xa-WvT">
             <objects>
                 <tableViewController id="MCy-TM-ALI" customClass="MTResultsTableViewController" sceneMemberID="viewController">
@@ -130,7 +130,7 @@
                             <outlet property="delegate" destination="MCy-TM-ALI" id="fbQ-zJ-e5Z"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Location Details" id="CEY-fu-zmG"/>
+                    <navigationItem key="navigationItem" title="Search Location Details" id="CEY-fu-zmG"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mva-nE-iaC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -157,7 +157,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="bTo-kg-fug"/>
-                                    <barButtonItem title="Play" id="x87-4L-Vvd">
+                                    <barButtonItem title="Play Directions" id="x87-4L-Vvd">
                                         <connections>
                                             <action selector="playPauseButtonPressed:" destination="IhM-Rz-lMi" id="aIC-nu-eMN"/>
                                         </connections>

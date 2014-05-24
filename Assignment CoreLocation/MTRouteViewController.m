@@ -14,7 +14,7 @@
 
 @implementation MTRouteViewController
 
-BOOL speechPaused = NO;
+BOOL speechPaused = NO; // used to track state of speech
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -55,11 +55,13 @@ BOOL speechPaused = NO;
         } else {
             [self showRoute:response];
         }
+//        NSLog(@"Direction: %@", response.routes.lastObject);
     }];
 }
 
 -(void)showRoute:(MKDirectionsResponse *)response
 {
+    self.directionsToSpeak = @"";
     for (MKRoute *route in response.routes)
     {
         [_routeMap addOverlay:route.polyline level:MKOverlayLevelAboveRoads];
@@ -67,6 +69,9 @@ BOOL speechPaused = NO;
         for (MKRouteStep *step in route.steps)
         {
             NSLog(@"%@", step.instructions);
+            self.directionsToSpeak = [self.directionsToSpeak stringByAppendingString:step.instructions];
+            self.directionsToSpeak = [self.directionsToSpeak stringByAppendingString:@"..."];
+            NSLog(@"direction: %@", self.directionsToSpeak);
         }
     }
 }
@@ -105,14 +110,28 @@ BOOL speechPaused = NO;
 {
     if (speechPaused == NO) {
         [sender setTitle:@"Pause"];
+        [self.synthesizer continueSpeaking];
         speechPaused = YES;
     } else {
-        [sender setTitle:@"Play"];
+        [sender setTitle:@"Play Directions"];
         speechPaused = NO;
+        [self.synthesizer pauseSpeakingAtBoundary:AVSpeechBoundaryImmediate];
     }
-   AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc] initWithString:@"Hello there. I didn't quite get to hooking in the step by step directions. And I didn't get the pause button finished. But it is time to check in my assignment."];
-   [self.synthesizer speakUtterance:utterance];
-//    [self.synthesizer speakUtterance:[AVSpeechUtterance speechUtteranceWithString:_instructions]];
+    if (self.synthesizer.speaking == NO) {
+        // AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc] initWithString:self.textToSpeak.text];
+//         AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc] initWithString:@"Hello there."];
+        AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc] initWithString:self.directionsToSpeak];
+        utterance.rate = 0.25;
+        utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-US"];
+        [self.synthesizer speakUtterance:utterance];
+    }
+}
+
+- (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didFinishSpeechUtterance:(AVSpeechUtterance *)utterance
+{
+    [self.playPauseButton setTitle:@"Play Directions"];
+    speechPaused = NO;
+    NSLog(@"Playback finished.");
 }
 
 @end
